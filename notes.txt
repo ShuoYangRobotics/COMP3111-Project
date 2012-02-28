@@ -1,0 +1,15 @@
+--0215--
+Paul:create this folder
+--02xx--
+Paul:made changes to file XXX
+--0215--
+Conrad: made changes in minutes in the task assigned
+--0216--
+Andreas: Uploaded a second attempt at registration forms. (Version 2)
+--0223--
+Andreas: Uploaded a revised registration form. (Still minor functions lacking)
+--0226--
+Andreas: Uploaded a yet another version of registration forms. Fixed a bug where leaving
+given name empty would pass validation, and added a checkbox disabling and enabling 
+validation for credit card information, depending on whether the user will be selling or not.
+Also added the folder "Login Form" containing a form for logging in.

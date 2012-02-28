@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>vBuy - We buy!</title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="Scripts/jquery-1.4.1.min.js" />
+    <link href="main.js" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="topbar">
+        <div class="topmenu">
+        Welcome to vBuy!
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false" onviewchanged="HeadLoginView_ViewChanged">
+                    <AnonymousTemplate>
+                        <a href="~/Account/Login.aspx" ID="HeadLoginStatus0" runat="server">Log In</a> / <a href="~/Account/Register.aspx" ID="A1" runat="server">Register</a>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+        </div>
+    </div>
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <p class="Logo">
+                    VBuy 
+                </p>
+            </div>
+            <div class="searchBoxDisplay">
+                <div class="searchBoxGreetings">Find something that you are interested in!</div>
+                <div class="searchBox">
+                <asp:TextBox ID="TextBox1" runat="server" Height="35px" Width="341px"></asp:TextBox>
+                <asp:Button ID="Button1" runat="server" style="margin-left: 30px" 
+Text="Search" Height="35px" Width="72px" onclick="Button1_Click" />
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
+                    EnableViewState="False" IncludeStyleBlock="False" Orientation="Horizontal" 
+                    SkipLinkText="" >
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/index.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                    </Items>
+                    <StaticItemTemplate>
+                        <%# Eval("Text") %>
+                    </StaticItemTemplate>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <p>
+                    Hello, I am an empty page!</p>
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
